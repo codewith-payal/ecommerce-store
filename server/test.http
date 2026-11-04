@@ -1,0 +1,39 @@
+POST http://localhost:5000/api/products
+Content-Type: application/json
+
+{
+  "name": "Running Shoes",
+  "description": "Lightweight breathable shoes for daily running.",
+  "price": 2499,
+  "category": "Fashion",
+  "image": "https://picsum.photos/seed/shoes/400/300",
+  "countInStock": 40
+}
+
+###
+
+POST http://localhost:5000/api/products
+Content-Type: application/json
+
+{
+  "name": "Smart Watch",
+  "description": "Fitness tracker with heart rate monitor and sleep tracking.",
+  "price": 3499,
+  "category": "Electronics",
+  "image": "https://picsum.photos/seed/watch/400/300",
+  "countInStock": 15
+}
+
+###
+
+POST http://localhost:5000/api/products
+Content-Type: application/json
+
+{
+  "name": "Backpack",
+  "description": "Water-resistant 25L backpack with laptop compartment.",
+  "price": 1299,
+  "category": "Fashion",
+  "image": "https://picsum.photos/seed/backpack/400/300",
+  "countInStock": 60
+}
