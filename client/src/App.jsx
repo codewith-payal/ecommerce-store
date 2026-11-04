@@ -1,8 +1,11 @@
 import { useEffect, useState } from 'react';
+import { Routes, Route } from 'react-router-dom';
 import axios from 'axios';
+import Header from './components/Header';
 import ProductCard from './components/ProductCard';
+import CartPage from './pages/CartPage';
 
-function App() {
+function Home() {
   const [products, setProducts] = useState([]);
   const [search, setSearch] = useState('');
   const [category, setCategory] = useState('All');
@@ -24,7 +27,6 @@ function App() {
 
   return (
     <div className="container">
-      <h1>My Store</h1>
       <div className="filters">
         <input
           className="search-box"
@@ -55,4 +57,15 @@ function App() {
   );
 }
 
+function App() {
+  return (
+    <>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/cart" element={<CartPage />} />
+      </Routes>
+    </>
+  );
+}
 export default App;
