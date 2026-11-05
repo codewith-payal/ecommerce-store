@@ -1,8 +1,16 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
+import { useAuth } from '../context/AuthContext';
 
 function Header() {
   const { totalItems } = useCart();
+  const { user, logout } = useAuth();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    logout();
+    navigate('/');
+  };
 
   return (
     <header className="header">
@@ -10,9 +18,23 @@ function Header() {
         <Link to="/" className="logo">
           My Store
         </Link>
-        <Link to="/cart" className="cart-link">
-          Cart ({totalItems})
-        </Link>
+        <nav className="nav-links">
+          {user ? (
+            <>
+              <span className="nav-user">Hi, {user.name.split(' ')[0]}</span>
+              <button className="logout-btn" onClick={handleLogout}>
+                Log out
+              </button>
+            </>
+          ) : (
+            <Link to="/login" className="nav-link">
+              Log in
+            </Link>
+          )}
+          <Link to="/cart" className="cart-link">
+            Cart ({totalItems})
+          </Link>
+        </nav>
       </div>
     </header>
   );

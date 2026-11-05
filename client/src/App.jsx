@@ -4,6 +4,8 @@ import axios from 'axios';
 import Header from './components/Header';
 import ProductCard from './components/ProductCard';
 import CartPage from './pages/CartPage';
+import LoginPage from './pages/LoginPage';
+import SignupPage from './pages/SignupPage';
 
 function Home() {
   const [products, setProducts] = useState([]);
@@ -64,6 +66,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/cart" element={<CartPage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/signup" element={<SignupPage />} />
       </Routes>
     </>
   );
