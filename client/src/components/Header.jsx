@@ -21,6 +21,10 @@ function Header() {
         <nav className="nav-links">
           {user ? (
             <>
+              <Link to="/orders" className="nav-link">My Orders</Link>
+              {user.isAdmin && (
+              <Link to="/admin" className="nav-link">Admin</Link>
+              )}
               <span className="nav-user">Hi, {user.name.split(' ')[0]}</span>
               <button className="logout-btn" onClick={handleLogout}>
                 Log out

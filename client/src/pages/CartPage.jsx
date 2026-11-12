@@ -1,8 +1,9 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 
 function CartPage() {
   const { cartItems, removeFromCart, updateQty, totalPrice } = useCart();
+  const navigate = useNavigate();
 
   if (cartItems.length === 0) {
     return (
@@ -41,7 +42,9 @@ function CartPage() {
       </div>
       <div className="cart-summary">
         <h3>Total: ₹{totalPrice}</h3>
-        <button className="checkout-btn">Proceed to checkout</button>
+        <button className="checkout-btn" onClick={() => navigate('/checkout')}>
+        Proceed to checkout
+        </button>
       </div>
     </div>
   );

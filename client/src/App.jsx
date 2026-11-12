@@ -6,6 +6,10 @@ import ProductCard from './components/ProductCard';
 import CartPage from './pages/CartPage';
 import LoginPage from './pages/LoginPage';
 import SignupPage from './pages/SignupPage';
+import CheckoutPage from './pages/CheckoutPage';
+import OrderSuccessPage from './pages/OrderSuccessPage';
+import OrdersPage from './pages/OrdersPage';
+import AdminPage from './pages/AdminPage';
 
 function Home() {
   const [products, setProducts] = useState([]);
@@ -68,6 +72,10 @@ function App() {
         <Route path="/cart" element={<CartPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignupPage />} />
+        <Route path="/checkout" element={<CheckoutPage />} />
+        <Route path="/order-success" element={<OrderSuccessPage />} />
+        <Route path="/orders" element={<OrdersPage />} />
+        <Route path="/admin" element={<AdminPage />} />
       </Routes>
     </>
   );
