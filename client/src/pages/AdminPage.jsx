@@ -3,7 +3,7 @@ import { Navigate } from 'react-router-dom';
 import axios from 'axios';
 import { useAuth } from '../context/AuthContext';
 
-const API = 'http://localhost:5000/api/products';
+const API = '/api/products';
 
 const emptyForm = {
   name: '',

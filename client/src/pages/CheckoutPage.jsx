@@ -22,7 +22,7 @@ function CheckoutPage() {
     setLoading(true);
     try {
       const { data } = await axios.post(
-        'http://localhost:5000/api/orders/checkout',
+        '/api/orders/checkout',
         {
           items: cartItems.map((i) => ({ product: i._id, qty: i.qty })),
           shippingAddress: { address, city, postalCode },

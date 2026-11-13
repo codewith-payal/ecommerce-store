@@ -18,7 +18,7 @@ function OrderSuccessPage() {
 
     axios
       .post(
-        'http://localhost:5000/api/orders/confirm',
+        '/api/orders/confirm',
         { sessionId },
         { headers: { Authorization: `Bearer ${user.token}` } }
       )

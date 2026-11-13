@@ -11,7 +11,7 @@ function OrdersPage() {
   useEffect(() => {
     if (!user) return;
     axios
-      .get('http://localhost:5000/api/orders/mine', {
+      .get('/api/orders/mine', {
         headers: { Authorization: `Bearer ${user.token}` },
       })
       .then((res) => setOrders(res.data))
