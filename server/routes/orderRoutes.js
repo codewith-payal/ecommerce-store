@@ -57,8 +57,8 @@ router.post('/checkout', protect, async (req, res) => {
         quantity: i.qty,
       })),
 
-    success_url: 'http://localhost:5173/order-success?session_id={CHECKOUT_SESSION_ID}',
-    cancel_url: 'http://localhost:5173/cart',
+      success_url: `${CLIENT_URL}/order-success?session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: `${CLIENT_URL}/cart`,
     metadata: { orderId: order._id.toString() },
     });
   
