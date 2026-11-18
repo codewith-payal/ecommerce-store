@@ -7,6 +7,7 @@ import { protect } from '../middleware/authMiddleware.js';
 const router = express.Router();
 
 const getStripe = () => new Stripe(process.env.STRIPE_SECRET_KEY);
+const CLIENT_URL = process.env.CLIENT_URL || 'http://localhost:5173';
 
 // Start checkout: create order + Stripe payment page
 router.post('/checkout', protect, async (req, res) => {
@@ -55,10 +56,12 @@ router.post('/checkout', protect, async (req, res) => {
         },
         quantity: i.qty,
       })),
-      success_url: 'http://localhost:5173/order-success?session_id={CHECKOUT_SESSION_ID}',
-      cancel_url: 'http://localhost:5173/cart',
-      metadata: { orderId: order._id.toString() },
+
+    success_url: 'http://localhost:5173/order-success?session_id={CHECKOUT_SESSION_ID}',
+    cancel_url: 'http://localhost:5173/cart',
+    metadata: { orderId: order._id.toString() },
     });
+  
 
     order.stripeSessionId = session.id;
     await order.save();
