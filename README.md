@@ -78,4 +78,5 @@ New accounts are normal customers. To make an account an admin, set `isAdmin` to
 
 ## Live Demo
 
-_Coming soon._
+https://ecommerce-store-self-nu.vercel.app
+First load may take up to 50 seconds because the free backend sleeps when idle.
